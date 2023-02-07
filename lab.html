@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<!-- 
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+      </head>
+      <body>
+        <script>
+          console.log("D3.js version:", d3.version);
+        </script>
+      </body>
+</html>
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<p>First paragraph</p>
+<p>Second paragraph</p>
+<script>
+ d3.select("p").style("color", "red");
+</script>
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<style>
+ .test {
+ color:'red'
+ }
+</style>
+<p class="test">First paragraph</p>
+<p1>Second paragraph</p1>
+<p class="test">Third paragraph</p>
+<script>
+ d3.selectAll(".test").style('color','blue');
+ d3.select("p1").style('color', 'red')
+</script>
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<span>Test</span>
+<script>
+ let newspan = d3.select("body").append('span');
+ newspan.text('hello');
+</script>
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+  <p2>1,2,3,4,5</p2>
+  <p3>6,7,8,9,10</p3>
+  <script>
+    d3.select("p2").style("color", "red");
+    d3.select("p3").style("color", "green");
+   </script>
+
+
+
+
+  <script src='https://d3js.org/d3.v7.min.js'></script>
+  <script>
+    d3.select("body").selectAll("div")
+  .data(d3.range(10))
+  .enter()
+  .append("div")
+  .text(function(d) { return d + 1; })
+  .style("color", function(d) {
+    if (d < 5) {
+      return "red";
+    } else {
+      return "green";
+    }
+  });
+  
+   </script>
+
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+var bodyElement = d3.select("body");
+var div = bodyElement.append("div");
+div.text("Hello World!").style('color','red');
+// same as
+d3.select("body").append("div").text("Hello World!");
+</script> -->
+
+
+part 3
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<div></div>
+<div></div>
+<div></div>
+<script>
+let nums = [10, 50, 200];
+let paragraph = d3.select("body")
+ .selectAll("div")
+ .data(nums)
+ .text(function (d, i) {
+ console.log("d: " + d);
+ console.log("i: " + i);
+ console.log("this: " + this);
+ return 'cont:' + d; // return value is used to set the 'text'
+ });
+</script> -->
+
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<div></div>
+<div></div>
+<div></div>
+<script>
+  let otherdata = [ 
+    {name:'test', val:1, color:"red"}, 
+    {name:'other', val:2,color:"green"},
+    {name:'b', val:3,color:"blue"} ];
+  let paragraph = d3.select("body")
+   .selectAll("div")
+   .data(otherdata)
+   .text(function (d, i, c) {
+   console.log("d.name: " + d.name);
+   console.log("d.val: " + d.val);
+   console.log("d.color:" + d.color);
+   console.log("i: " + i);
+   console.log("this: " + this);
+   return 'cont: ' + d.name +"  "+ d.color; // return value is used to set the 'text'
+   });
+  </script> -->
+
+
+<!-- 
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<script>
+let num = [10, 50, 60, 70, 100, 200];
+let paragraph = d3.select("body")
+ .selectAll("div")
+ .data(num)
+ .text(function (d, i) {
+ return 'cont:' + d; // return value is used to set the 'text'
+ })
+ .style("color", function(d, i) {
+ if ( d >= 100 || d <= 50 ) {
+ return "yellow";
+ } else {
+ return "red";
+ }
+//  return 'blue';
+ });
+</script> -->
+
+
+part 4
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+ var myData = ['a', 'b', 'c', 'd' ];
+ 
+ var p = d3.select("body")
+ .selectAll("p")
+ .data(myData)
+ .enter()
+ .append('p')
+ .text(function (d, i) {
+ return d;
+ });
+</script>
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+var myData = ['a', 4, 1, 'b', 6, 2, 8, 9, 'z'];
+
+myData.forEach(function(element) {
+  var newElement = document.createElement("span");
+  if (typeof element === "number") {
+    newElement.style.color = "green";
+    newElement.innerHTML = element;
+  } else if (typeof element === "string") {
+    newElement.style.color = "blue";
+    newElement.innerHTML = element;
+  }
+  document.body.appendChild(newElement);
+});
+</script> 
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<script>
+ var myData = [3, 4];
+ var p = d3.select("body")
+ .selectAll("p")
+ .data(myData)
+ .text(function (d, i) {
+ return d;
+ })
+ .exit()
+ .remove();
+</script> -->
+
+
+
+part 5
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+let titaniccsv = 'https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv';
+/*
+PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked
+892,3,"Kelly, Mr. James",male,34.5,0,0,330911,7.8292,,Q
+893,3,"Wilkes, Mrs. James (Ellen Needs)",female,47,1,0,363272,7,,S
+894,2,"Myles, Mr. Thomas Francis",male,62,0,0,240276,9.6875,,Q
+895,3,"Wirz, Mr. Albert",male,27,0,0,315154,8.6625,,S
+*/
+d3.csv(titaniccsv, function(data) {
+ console.log( data.Name );
+ console.log( data.Age);
+
+});
+</script> -->
+
+
+
+part 6
+
+
+ <!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+ //Create SVG element
+ var svg = d3.select("body")
+ .append("svg")
+ .attr("width", 400)
+ .attr("height", 400)
+ .style("border", '1px solid green');
+ //Create line element inside SVG
+ svg.append("line")
+ .attr("x1", 100)
+ .attr("x2", 200)
+ .attr("y1", 50)
+ .attr("y2", 150)
+ .attr("stroke", "blue")
+</script> -->
+
+<!-- 
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+ //Create SVG element
+ var svg = d3.select("body")
+ .append("svg")
+ .attr("width", 400)
+ .attr("height", 400)
+ .style("border", '1px solid green');
+ //Create line element inside SVG
+ svg.append("line")
+ .attr("x1", 100)
+ .attr("x2", 100)
+ .attr("y1", 100)
+ .attr("y2", 200)
+ .attr("stroke", "blue")
+
+ svg.append("line")
+ .attr("x1", 100)
+ .attr("x2", 200)
+ .attr("y1", 100)
+ .attr("y2", 100)
+ .attr("stroke", "red")
+
+
+ svg.append("line")
+ .attr("x1", 100)
+ .attr("x2", 200)
+ .attr("y1", 200)
+ .attr("y2", 200)
+ .attr("stroke", "pink")
+
+
+ svg.append("line")
+ .attr("x1", 200)
+ .attr("x2", 200)
+ .attr("y1", 200)
+ .attr("y2", 100)
+ .attr("stroke", "yellow")
+
+</script>
+
+
+
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+ //Create SVG element
+ var svg = d3.select("body")
+ .append("svg")
+ .attr("width", 400)
+ .attr("height", 400)
+ .style("border", '1px solid green');
+ //Create and append rectangle element
+ svg.append("rect")
+ .attr("x", 0)
+ .attr("y", 0)
+ .attr("width", 200)
+ .attr("height", 100);
+ .attr("fill", 'pink');
+ //Append circle 
+ svg.append("circle")
+ .attr("cx", 250)
+ .attr("cy", 50)
+ .attr("r", 50)
+ .attr("fill", 'red');
+ svg.append("ellipse")
+ .attr("cx", 350)
+ .attr("cy", 50)
+ .attr("rx", 150)
+ .attr("ry", 50)
+ .attr("stroke", '#fcf');
+ //Create and append text element into group
+ svg.append("text")
+ .attr("x", 150)
+ .attr("y", 50);
+ .attr("stroke", "#fff")
+ .text("This is some text!");
+</script> -->
+
+part 7
+
+<!-- 
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<style>
+svg rect {
+ fill: blue;
+}
+svg text {
+ fill:white;
+ font: 10px sans-serif;
+ text-anchor: end;
+}
+</style>
+<script>
+var data = [5, 10, 12, 6];
+var width = 200;
+var scaleFactor = 10;
+var barHeight = 20;
+var graph = d3.select("body")
+ .append("svg")
+ .attr("width", width)
+ .attr("height", barHeight * data.length);
+var bar = graph.selectAll("g")
+ .data(data)
+ .enter()
+ .append("g")
+ .attr("transform", function(d, i) {
+ return "translate(0," + i * barHeight + ")";
+ });
+bar.append("rect")
+ .attr("width", function(d) {
+ return d * scaleFactor;
+ })
+ .attr("height", barHeight - 1);
+bar.append("text")
+ .attr("x", function(d) { return (d*scaleFactor); })
+ .attr("y", barHeight / 2)
+ .attr("dy", ".35em")
+ .text(function(d) { return d; });
+</script> -->
+
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<style>
+svg rect {
+ fill: blue;
+}
+svg text {
+ fill:white;
+ font: 10px sans-serif;
+ text-anchor: end;
+}
+</style>
+<script>
+  let titaniccsv = 'https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv';
+  d3.csv(titaniccsv, function(data) {
+   return titaniccsv.Age
+  });
+  var data = titaniccsv.Age;
+  var width = 200;
+  var scaleFactor = 10;
+  var barHeight = 20;
+  var graph = d3.select("body")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", barHeight * data.length);
+  var bar = graph.selectAll("g")
+  .data(data)
+  .enter()
+  .append("g")
+  .attr("titaniccsv", function(d, i) {
+  return "translate(0," + i * barHeight + ")";
+  });
+  bar.append("rect")
+  .attr("width", function(d) {
+  return d * scaleFactor;
+  })
+  .attr("height", barHeight - 1);
+  bar.append("text")
+  .attr("x", function(d) { return (d*scaleFactor); })
+  .attr("y", barHeight / 2)
+  .attr("dy", ".35em")
+  .text(function(d) { return d; });
+</script> -->
+
+
+
+part 8
+<!-- 
+<script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+const width = 500;
+const height = 500;
+const data = [10, 15, 20, 25, 30];
+// Note different valid ways of specifying color
+const colors = ['#ffffcc','red','rgb(0,255,0)','#31a354','#006837'];
+const svg = d3.select("body")
+ .append("svg")
+ .attr("width", width)
+ .attr("height", height);
+const g = svg.selectAll("g")
+ .data(data)
+ .enter()
+ .append("g")
+ .attr("transform", function(d, i) {
+ return "translate(0,0)";
+ })
+// g.append("circle")
+//  .attr("cx", function(d, i) {
+//  return i*100 + 50;
+//  })
+//  .attr("cy", function(d, i) {
+//  return 100;
+//  })
+//  .attr("r", function(d) {
+//  return d*1.5;
+//  })
+//  .attr("fill", function(d, i){
+//  return colors[i];
+//  })
+// g.append("text")
+// .attr("x", function(d, i) {
+//  return i * 100 + 40;
+// })
+// .attr("y", 105)
+// .attr("stroke", "teal")
+// .attr("font-size", "12px")
+// .attr("font-family", "sans-serif")
+// .text(function(d) {
+//  return d;
+// });
+
+
+g.append("rect")
+.attr("x", function(d, i){
+  return i*100 + 50;
+})
+
+.attr("y", function(d, i){
+  return 100;
+})
+
+.attr("height", function(d, i){
+  return d*1.5;
+})
+
+.attr("width", function(d, i){
+  return d*1.5;
+})
+.attr("fill", function(d, i){
+ return colors[i];
+ })
+g.append("text")
+.attr("x", function(d, i) {
+ return i * 100 + 40;
+})
+.attr("y", 105)
+.attr("stroke", "teal")
+.attr("font-size", "12px")
+.attr("font-family", "sans-serif")
+.text(function(d) {
+ return d;
+});
+</script> -->
+
+
+part 9
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+var data = [0, 400, 300, 900, 850, 1000];
+var scale = d3.scaleLinear()
+ .domain([d3.min(data), d3.max(data)])
+ .range([0, 10]);
+console.log( 'scale 0:', scale(0) ); // 0 maps to 0
+console.log( 'scale 1000:', scale(1000) ); // 1000 maps to 10
+console.log( 'scale 200:', scale(200) ); 
+</script> -->
+
+
+
+
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+const data = [50, 400, 300, 900, 250, 1000]
+const width = 500;
+const barHeight = 20;
+const margin = 1;
+var scale = d3.scaleLinear()
+ .domain([d3.min(data), d3.max(data)])
+ .range([50, 500]);
+var svg = d3.select("body")
+ .append("svg")
+ .attr("width", width)
+ .attr("height", barHeight * data.length);
+var g = svg.selectAll("g")
+ .data(data)
+ .enter()
+ .append("g")
+ .attr("transform", function (d, i) {
+ return "translate(0," + i * barHeight + ")";
+ });
+g.append("rect")
+ .attr("width", function (d) {
+ return scale(d);
+ })
+ .attr("color", function(d, i) {
+ if ( d <= 100 ) {
+ return "red";
+ } else if( d>=500){
+ return "yellow";
+ } else
+ return 'blue';
+ })
+
+ .attr("height", barHeight - margin)
+g.append("text")
+ .attr("x", function (d) { return (scale(d)); })
+ .attr("y", barHeight / 2)
+ .attr("dy", ".35em")
+ .style('text-anchor', 'end')
+ .text(function (d) { return d; });
+</script> -->
+
+
+Part 10
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+const width = 400;
+const height = 100;
+const data = [10, 12, 20, 25, 32];
+// Append SVG 
+var svg = d3.select("body")
+ .append("svg")
+ .attr("width", width)
+ .attr("height", height);
+// Create scale
+var scale = d3.scaleLinear()
+ .domain([d3.min(data), d3.max(data)])
+ .range([0, width - 100]);
+// Add scales to axis
+var x_axis = d3.axisBottom()
+ .scale(scale);
+//Append group and insert axis
+svg.append("g")
+ .call(x_axis);
+</script> -->
+
+
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+const width = 400;
+const height = 300;
+var data = [10, 15, 20, 25, 30];
+var svg = d3.select("body")
+.append("svg")
+ .attr("width", width)
+ .attr("height", height);
+var xscale = d3.scaleLinear()
+ .domain([0, d3.max(data)])
+ .range([0, width - 100]);
+var yscale = d3.scaleLinear()
+ .domain([0, d3.max(data)])
+ .range([height/2, 0]);
+var x_axis = d3.axisBottom()
+ .scale(xscale);
+var y_axis = d3.axisLeft()
+ .scale(yscale);
+ svg.append("g")
+ .attr("transform", "translate(50, 10)")
+ .call(y_axis);
+var xAxisTranslate = height/2 + 10;
+ svg.append("g")
+ .attr("transform", "translate(50, " + xAxisTranslate +")")
+ .call(x_axis)
+</script> -->
+
+
+
+part 12
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+// Set Dimensions
+const xSize = 600; const ySize = 600;
+const margin = 40;
+const xMax = xSize - margin*2;
+const yMax = ySize - margin*2;
+// Create Random Points
+const numPoints = 100;
+const data = [];
+for (let i = 0; i < numPoints; i++) { data.push( {x: i/100, y: Math.sin( 6.2 * i/100 ) } ); }
+// Get the 'limits' of the data - the full extent (mins and max)
+// so the plotted data fits perfectly 
+const xExtent = d3.extent( data, d=>{ return d.x } );
+const yExtent = d3.extent( data, d=>{ return d.y } );
+// Append SVG Object to the Page
+const svg = d3.select("body")
+ .append("svg")
+ .attr('width', xSize )
+ .attr('height', ySize )
+ .append("g")
+ .attr("transform","translate(" + margin + "," + margin + ")");
+// X Axis
+const x = d3.scaleLinear()
+ .domain([ xExtent[0], xExtent[1] ])
+ .range([0, xMax]);
+// bottom
+svg.append("g")
+ .attr("transform", "translate(0," + yMax + ")")
+ .call(d3.axisBottom(x))
+ .attr('color', 'green'); // make bottom axis green
+// top
+svg.append("g")
+ .call(d3.axisTop(x));
+// Y Axis
+const y = d3.scaleLinear()
+ .domain([ yExtent[0], yExtent[1] ])
+ .range([ yMax, 0]);
+ // left y axis
+svg.append("g")
+ .call(d3.axisLeft(y));
+// right y axis
+svg.append("g")
+ .attr("transform", `translate(${yMax},0)`)
+ .call(d3.axisRight(y));
+// Add the line
+svg.append("path")
+ .datum(data)
+ .attr("fill", "none")
+ .attr("stroke", "steelblue")
+ .attr("stroke-width", 1.5)
+ .attr("d", d3.line()
+ .x(function(d) { return x(d.x) })
+ .y(function(d) { return y(d.y) })
+ );
+</script> -->
+
+
+part 13
+
+<!-- <script src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+  svg.selectAll("dot")
+    .data(data) 
+    .enter()
+    .append("circle")
+    .attr("cx", function (d) { return x(d.x) } )
+    .attr("cy", function (d) { return y(d.y) } )
+    .attr("r", 5)
+    .style("fill", "red");
+</script> -->
+
+
+part 14
+
+<!-- <script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+var myColor0 = d3.scaleLinear().domain([1,10]).range(["white", "blue"]);
+
+console.log( 'col 0:', myColor0(0) );
+console.log( 'col 2:', myColor0(2) );
+console.log( 'col 9:', myColor0(9) );
+</script>
+
+
+
+
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<style>
+div {
+ display: inline-block;
+ width : 10px;
+ height : 10px;
+ margin: 1px;
+ padding: 10px;
+}
+</style>
+<script>
+var body = d3.select('body');
+var myColor0 = d3.scaleLinear().domain([1,10]).range(["white", "blue"]);
+var myColor1 = d3.scaleSequential().domain([1,10]).interpolator(d3.interpolatePuRd);
+var myColor2 = d3.scaleSequential().domain([1,10]).interpolator(d3.interpolateViridis)
+/*
+d3.range(5)
+[0, 1, 2, 3, 4]
+*/
+var data = d3.range(5);
+var myColor3 = d3.scaleOrdinal().domain(data).range(["gold", "blue", "green", "yellow"]);
+var myColor4 = d3.scaleOrdinal().domain(data).range(d3.schemeSet3);
+var cols = [myColor0, 
+ myColor1,
+ myColor2,
+ myColor3,
+ myColor4 ];
+for (let k=0; k<cols.length; k++)
+{
+ for (let i=0; i<20; i++)
+ {
+ body.append('div').style( 'background-color', cols[k](i) );
+ }
+ body.append('br');
+}
+console.log('ready..');
+</script> -->
+
+
+
+part 15
+
+<script type='text/javascript' src='https://d3js.org/d3.v7.min.js'></script>
+<script>
+var data = [3, 4, 8, 12];
+const xSize = 400; const ySize = 400;
+const margin = 40;
+const xMax = xSize - margin*2;
+const yMax = ySize - margin*2;
+// Append SVG Object to the Page
+const svg = d3.select("body")
+ .append("svg")
+ .attr('width', xSize )
+ .attr('height', ySize )
+ .append("g")
+ .attr("transform","translate(" + xSize/2 + "," + ySize/2 + ")");
+const radius = Math.min(xSize, ySize) / 2;
+var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+// Generate the pie
+var pie = d3.pie();
+// Generate the arcs
+var arc = d3.arc()
+ .innerRadius(0)
+ .outerRadius(radius);
+//Generate groups
+var arcs = svg.selectAll("arc")
+.data(pie(data))
+ .enter()
+ .append("g")
+ .attr("class", "arc")
+//Draw arc paths
+arcs.append("path")
+ .attr("fill", function(d, i) {
+ return color(i);
+ })
+ .attr("d", arc);
+</script>
