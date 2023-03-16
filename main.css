@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(251, 251, 251);
+  }
+  
+  h1{
+    color: aqua;
+    translate: center;
+  }
+  /* 为第一个JS图像设置绿色背景和黑色边框 */
+#js-line {
+    background-color: #00FF00;
+    border: 1px solid #000000;
+  }
+  
+  /* 为第二个JS图像设置蓝色背景和红色边框 */
+  #js-point {
+    background-color: #0000FF;
+    border: 1px solid #FF0000;
+  }
+
+  
